@@ -1,7 +1,7 @@
 {
   "name": "telehelp",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Helpers for telegraf.js",
   "main": "dist/lib.js",
   "module": "dist/lib.mjs",
   "typings": "dist/lib.d.ts",
