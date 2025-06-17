@@ -1,0 +1,26 @@
+{
+  "name": "telehelp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/lib.js",
+  "module": "dist/lib.mjs",
+  "typings": "dist/lib.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublish": "pnpm build"
+  },
+  "keywords": [],
+  "author": "artegoser",
+  "license": "MIT",
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "esbuild": "^0.25.5",
+    "rollup": "^4.43.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "rollup-plugin-esbuild": "^6.2.1",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "telegraf": "^4.16.3"
+  }
+}
