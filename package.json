@@ -1,6 +1,6 @@
 {
   "name": "telehelp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Helpers for telegraf.js",
   "main": "dist/lib.js",
   "module": "dist/lib.mjs",
@@ -19,5 +19,8 @@
   },
   "peerDependencies": {
     "telegraf": "^4.16.3"
+  },
+  "dependencies": {
+    "nanoid": "^5.1.5"
   }
 }

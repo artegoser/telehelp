@@ -1,5 +1,6 @@
 import { Scenes } from "telegraf";
 import { WizardContext } from "./types";
+import { nanoid } from "nanoid";
 
 export type Validator<V> = (input: string) => ValidationResult<V>;
 
@@ -45,6 +46,7 @@ export function createFormScene<T extends object>(
             return ctx.wizard.next();
           } else {
             await onSubmit?.(ctx);
+            ctx.scene.session.form = {} as T; // Clear the form after submission
             return ctx.scene.leave();
           }
         } else if (validationResult?.errorMessage) {
@@ -67,4 +69,20 @@ export function createFormScene<T extends object>(
     },
     ...wizardSteps
   );
+}
+
+/**
+ * Creates a form with the specified steps and submission handler.
+ * @param steps - The steps of the form.
+ * @param onSubmit - The function to call when the form is submitted.
+ * @param idLength - The length of the ID to generate.
+ * @returns The created form scene.
+ */
+export function createForm<T extends object>(
+  steps: FormStep<T>[],
+  onSubmit?: submitHandler<T>,
+  idLength: number = 10
+) {
+  let id = nanoid(idLength);
+  return createFormScene(id, steps, onSubmit);
 }
